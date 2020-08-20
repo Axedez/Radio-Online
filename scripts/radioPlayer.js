@@ -32,13 +32,20 @@ const changeIconPlay = () => {
     radioStop.classList.add('fa-stop');
     radioStop.classList.remove('fa-play');
   }
+  $(function () {
+    if ($(document).width() < 650) {
+      $('.header').fadeOut(1500);
+    } else {
+      $('.header').fadeTo(1000, 0);
+    }
+  });
 };
 // Function for selecting items
 const selectItem = (elem) => {
   radioItem.forEach((item) => item.classList.remove('select'));
   elem.classList.add('select');
-  header.style.display = 'none';
 };
+
 // Event for playing radio stations
 
 radioNavigation.addEventListener('change', (event) => {
@@ -121,7 +128,7 @@ radioNavigation.addEventListener('change', (event) => {
       document.body.style.background =
         'radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(211,234,255,1) 100%)';
       footer.style.background = '#b81b34';
-      footer.style.opacity = '0.8';
+      footer.style.opacity = '0.6';
       break;
 
     default:
